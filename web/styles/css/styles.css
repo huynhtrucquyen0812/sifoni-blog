@@ -1,0 +1,58 @@
+
+/* Nothing here yet */
+.text-right {
+    text-align: right !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+.hero-subunit {
+  padding: 30px;
+  margin-bottom: 30px;
+  font-size: 15px;
+  font-weight: 200;
+  line-height: 30px;
+  color: #303030;
+  border: dashed 1px #A7A7A7;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  background-color: #F6F6F6;
+;
+}
+.hero-subunit h1 {
+  margin: 20;
+  font-size: 25px;
+  line-height: 1;
+  color: #6E6E6E;
+  letter-spacing: -1px;
+  font-style: italic;
+  font-family: serif;
+}
+.form-horizontal .controlls {
+  *display: inline-block;
+  *padding-left: 0;
+  margin-left: 0;
+  *margin-left: 0;
+}
+.form-horizontal .controlls:first-child {
+  *padding-left: 0;
+}
+.comment {
+  width: 100%;
+}
+.row_book{
+  margin-left: 0;
+}
+.book_name{
+  margin-top:15px;
+  height:40px;
+  color:green;
+  font-weight:bold;
+}
+.posbadge{
+  position: absolute;
+  margin-top: -30px;
+  margin-left: 80px;
+}

@@ -1,0 +1,32 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+	<h3>Tạo bài viết mới</h3>
+	{% if error is defined %}
+		<div class="alert alert-error">
+		    {{ error }}
+		</div>
+	{% else %}
+			<form class="form-horizontal" method="post" action="">
+			  <div class="control-group">
+			    <label class="control-label" for="inputTitle">Title</label>
+			    <div class="controls">
+			      <input type="text" id="inputTitle" placeholder="Title" name="title" />
+			    </div>
+			  </div>
+			  <div class="control-group">
+			    <label class="control-label" for="inputContent">Content</label>
+			    <div class="controls">
+			      <textarea class="comment" rows="15" placeholder="Content.." name="content"></textarea>
+			      <script>
+			          CKEDITOR.replace( "content" );
+			      </script>
+			    </div>
+			  </div>
+			  <div class="control-group">
+			    <div class="controls">
+			      <button type="submit" class="btn btn-success">Create</button>
+			    </div>
+			  </div>
+			</form>
+	{% endif %}
+{% endblock %}

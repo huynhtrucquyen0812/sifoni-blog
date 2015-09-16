@@ -1,0 +1,71 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+	<h2>Danh sách bài đăng</h2>
+	<button class="btn btn-small btn-primary" onclick="location.href='/entrymanage/create'">Create new Entry</button>
+	{% if error is defined %}
+		<div class="alert alert-error">
+		    {{ error }}
+		</div>
+	{% else %}
+		{% if pages>1 %}
+			{% include 'blocks/pagination.html.twig' %}
+		{% endif %}
+	    
+		<table class="table table-hover">
+			<thead>
+				<th>#</th>
+				<th>Tiêu đề</th>
+				<th>Nội dung</th>
+				<th>Ngày đăng</th>
+				<th></th>
+			</thead>
+			{% set i = 0 %}
+			{% for entry in entrys %}
+				{% set i = i + 1 %}
+				<tr>
+					<td>{{ i }}</td>
+					<td>{{ entry.title }}</td>
+					<td>{{ entry.content | slice(0, 100) | striptags }}...</td>
+					<td>{{ entry.posted_day }}</td>
+					<td>
+						<div class="text-right">
+			                <button class="btn btn-small btn-primary" onclick="location.href='/entrymanage/update/{{ entry.id }}'">Update</button><br><br>
+			                <button type="button" class="mimi btn btn-small btn-danger" data-toggle="modal" data-target="#deleteModal" data-id="{{ i }}" data-title="{{ entry.title }}" data-content="{{ entry.content | slice(0, 150) | striptags }}..." >Delete</button>
+			            </div>
+			            <script type="text/javascript">
+			                $(document).on("click", ".mimi", function () {
+			                    var entryId = $(this).data('id');
+			                    var entryTitle = $(this).data('title');
+			                    var entryContent = $(this).data('content');
+			                    $(".modal-body #entryTitle").val( entryTitle );
+			                    $(".modal-body #entryContent").val( entryContent );
+			                    document.getElementById("btnDel").setAttribute( "onClick", "location.href='/entrymanage/delete/"+entryId+"'");
+			                });
+			            </script>
+					</td>
+				</tr>
+			{% endfor %}
+		</table>
+
+		<!-- Modal -->
+	    <div id="deleteModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	        <h3 id="myModalLabel">Do you really want to delete it?</h3>
+	      </div>
+	      <div class="modal-body">
+	        <h4><output id="entryTitle" value=""/></h4>
+	        <p>
+	            <output id="entryContent" value=""/>
+	        </p>
+	      </div>
+	      <div class="modal-footer">
+	        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+	        <button id="btnDel" class="btn btn-primary" onclick="">Delete</button>
+	      </div>
+	    </div>
+	    <!-- END Modal -->
+
+	{% endif %}
+	
+{% endblock %}

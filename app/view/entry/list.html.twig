@@ -1,0 +1,20 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+	<h2>Danh sách bài đăng</h2>
+	{% if pages>1 %}
+		{% include 'blocks/pagination.html.twig' %}
+	{% endif %}
+    {% for entry in entrys %}
+	    <div class="hero-unit">
+			<h1>{{ entry.title }}</h1>
+		    <p>
+		    	{{ entry.content | slice(0, 300) | striptags }}
+		    	<a href="/entry/{{ entry.id }}">...Xem thêm</a>
+		    </p>
+		    <div class="pull-right">
+			    <span class="label">{{ entry.posted_day }}</span>
+			    <span class="label label-info">{{ entry.username }}</span>
+		    </div>
+		</div>
+	{% endfor %}
+{% endblock %}

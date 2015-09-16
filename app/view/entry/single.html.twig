@@ -1,0 +1,46 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+	<h2>{{ entry.title }}</h2>
+	{% if error is defined %}
+		<div class="alert alert-error">
+		    {{ error }}
+		</div>
+	{% else %}
+	    <div class="hero-unit">
+		    <p>
+		    	{{ entry.content | raw }}
+		    </p>
+		    <div class="pull-right">
+			    <span class="label">{{ entry.posted_day }}</span>
+			    <span class="label label-info">{{ entry.username }}</span>
+		    </div>
+		</div>
+
+		{% for c in comments %}
+			<div class="hero-subunit">
+			    <p>
+			    	{{ c.comment }}
+			    </p>
+			    <div class="pull-right">
+				    <span class="label">{{ c.date }}</span>
+				    <span class="label label-inverse">{{ c.name }}</span>
+			    </div>
+			</div>
+		{% endfor %}
+
+		<div class="hero-subunit">
+		<form class="form-horizontal" method="post">
+			<div class="controlls">
+		      <input class="comment" type="text" placeholder="Your name.." name="name">
+		    </div>
+		    <div class="controlls">
+		      <textarea class="comment" rows="3" placeholder="Comment.." name="comment"></textarea>
+		    </div>
+		    <div class="text-right">
+				<button class="btn btn-small btn-primary" type="submit">Post</button>
+		  		<button class="btn btn-small" type="reset">Reset</button>
+		    </div>
+		</form>
+		</div>
+	{% endif %}
+{% endblock %}

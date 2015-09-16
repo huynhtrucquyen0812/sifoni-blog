@@ -1,0 +1,11 @@
+<p>
+    <div class="pagination text-right">
+      <ul>
+        <li><a href="/{{ type }}/0">&laquo;</a></li>
+        {% for i in 1..pages %}
+            <li><a href="/{{ type }}/{{ i-1 }}">{{ i }}</a></li>
+        {% endfor %}
+        <li><a href="/{{ type }}/{{ pages-1 }}">&raquo;</a></li>
+      </ul>
+    </div>
+</p>

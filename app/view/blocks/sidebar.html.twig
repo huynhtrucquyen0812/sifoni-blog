@@ -1,0 +1,14 @@
+<h3>Menu Chính</h3>
+<ul class="nav nav-tabs nav-stacked">
+    {% if app.session.get('logged')['name'] is defined %}
+        <li><a href="/entrymanager/0">Welcome <strong>{{ app.session.get('logged')['name'] }}</strong></a></li>
+        <li><a href="/logout">Logout</a></li>
+    {% else %}
+        <li><a href="/login">Login</a></li>
+        <li><a href="/register">Register</a></li>
+    {% endif %}
+</ul>
+
+<ul class="nav nav-tabs nav-stacked">
+    <li><a href="/entrys">Bài đăng gần đây</a></li>
+</ul>
