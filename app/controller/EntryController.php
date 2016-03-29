@@ -6,6 +6,7 @@ use Sifoni\Controller\Base;
 use App\Model\Entry;
 use App\Model\User;
 use App\Model\Comment;
+use Facebook\Facebook;
 
 class EntryController extends Base {
 	public function indexAction(){

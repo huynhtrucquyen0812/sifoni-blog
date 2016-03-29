@@ -1,0 +1,43 @@
+.cke_inner a.cke_button,
+.cke_inner a.cke_combo_button,
+.cke_inner a.cke_combo_button .cke_combo_text,
+.cke_inner a.cke_button .cke_button_icon,
+.cke_inner a.cke_button .cke_button_label{
+    cursor: pointer !important;
+}
+
+.cke_dialog_title{
+    padding: 6px !important;
+}
+
+.cke_dialog_contents_body{
+    padding: 6px 10px !important;
+}
+
+.cke_dialog_ui_vbox{
+    margin-top: 0 !important;
+}
+
+.cke_dialog_close_button{
+    top: 6px !important;
+}
+
+.cke_dialog_tabs{
+    margin-top: 3px !important;
+}
+
+.cke_dialog_contents{
+    margin-top: 28px !important;
+}
+
+.cke_dialog_ui_text{
+    margin-bottom: 4px !important;
+}
+
+.cke_dialog_footer_buttons{
+        margin: 6px !important;
+}
+
+#cke_91_uiElement .cke_dialog_ui_button{
+        margin-top: 16px !important;
+}

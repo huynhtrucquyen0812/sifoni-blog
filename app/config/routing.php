@@ -17,5 +17,8 @@ return array(
         '/entrymanage/create' => 'EntryController:create:createentry',
         '/entrymanage/update/{id}' => 'EntryController:update:updateentry:id=0',
         '/entrymanage/delete/{id}' => 'EntryController:delete:deleteentry:id=0'
+    ),
+    '/admin' => array(
+        '/' => 'AdminController:index:adminIndex::get'
     )
 );

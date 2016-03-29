@@ -16,31 +16,67 @@
 		    </div>
 		</div>
 
-		{% for c in comments %}
-			<div class="hero-subunit">
-			    <p>
-			    	{{ c.comment }}
-			    </p>
-			    <div class="pull-right">
-				    <span class="label">{{ c.date }}</span>
-				    <span class="label label-inverse">{{ c.name }}</span>
-			    </div>
-			</div>
-		{% endfor %}
+		<script>
+			jQuery(document).ready(function() {
+	            //Default Action
+	            jQuery(".tab_content").hide(); //Hide all content
+	            jQuery("ul.nav.nav-tabs li:first").addClass("active").show(); //Activate first tab
+	            jQuery(".tab_content:first").show(); //Show first tab content
+	            
+	            //On Click Event
+	            jQuery("ul.nav.nav-tabs li").click(function() {
+	                jQuery("ul.nav.nav-tabs li").removeClass("active"); //Remove any "active" class
+	                jQuery(this).addClass("active"); //Add "active" class to selected tab
+	                jQuery(".tab_content").hide(); //Hide all tab content
+	                var activeTab = jQuery(this).find("a").attr("href"); //Find the rel attribute value to identify the active tab + content
+	                jQuery(activeTab).fadeIn(); //Fade in the active content
+	                return false;
+	            });
+	        });
+		</script>
+		
+		<div
+		  class="fb-like"
+		  data-share="true"
+		  data-width="450"
+		  data-show-faces="true">
+		</div>
 
-		<div class="hero-subunit">
-		<form class="form-horizontal" method="post">
-			<div class="controlls">
-		      <input class="comment" type="text" placeholder="Your name.." name="name">
-		    </div>
-		    <div class="controlls">
-		      <textarea class="comment" rows="3" placeholder="Comment.." name="comment"></textarea>
-		    </div>
-		    <div class="text-right">
-				<button class="btn btn-small btn-primary" type="submit">Post</button>
-		  		<button class="btn btn-small" type="reset">Reset</button>
-		    </div>
-		</form>
+		<ul class="nav nav-tabs">
+		  <li><a href="#default" data-toggle="tab">Users Comment</a></li>
+		  <li><a href="#facebook" data-toggle="tab">Facebook Comment</a></li>
+		</ul>
+		
+		<div class="tab_content" id="default">
+			{% for c in comments %}
+				<div class="hero-subunit">
+				    <p>
+				    	{{ c.comment }}
+				    </p>
+				    <div class="pull-right">
+					    <span class="label">{{ c.date }}</span>
+					    <span class="label label-inverse">{{ c.name }}</span>
+				    </div>
+				</div>
+			{% endfor %}
+
+			<div class="hero-subunit">
+				<form class="form-horizontal" method="post">
+					<div class="controlls">
+				      <input class="comment" type="text" placeholder="Your name.." name="name">
+				    </div>
+				    <div class="controlls">
+				      <textarea class="comment" rows="3" placeholder="Comment.." name="comment" style="margin-top:10px"></textarea>
+				    </div>
+				    <div class="text-right">
+						<button class="btn btn-small btn-primary" type="submit">Post</button>
+				  		<button class="btn btn-small" type="reset">Reset</button>
+				    </div>
+				</form>
+			</div>
+		</div>
+		<div class="tab_content" id="facebook">
+			<div class="fb-comments" data-href="{{ url('singleEntry', {id:entry.id}) }}" width="100%" data-numposts="5"></div>
 		</div>
 	{% endif %}
 {% endblock %}

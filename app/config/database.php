@@ -16,13 +16,5 @@ return array(
                 'logging'   => false,
             )
         ),
-
-        // Cache
-        /*
-        'capsule.cache' => array(
-            'driver' => 'apc',
-            'prefix' => 'sifoni',
-        ),
-        */
     )
 );

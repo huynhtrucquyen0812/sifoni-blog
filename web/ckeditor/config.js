@@ -3,44 +3,22 @@
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
-CKEDITOR.editorConfig = function( config ) {
-	// Define changes to default configuration here.
-	// For complete reference see:
-	// http://docs.ckeditor.com/#!/api/CKEDITOR.config
-
-	config.extraPlugins = 'imgur';
-    // Get your client-id from https://api.imgur.com/oauth2/addclient
-    config.imgurClientID = '8fea89576c41de4';
-
-    //Client secret: 5b45814801a0dfdf753e292724fab776f772f981
-
-	// The toolbar groups arrangement, optimized for a single toolbar row.
-	config.toolbarGroups = [
-		{ name: 'document',	   groups: [ 'mode', 'document', 'doctools' ] },
-		{ name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
-		{ name: 'editing',     groups: [ 'find', 'selection', 'spellchecker' ] },
-		{ name: 'forms' },
-		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-		{ name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
-		{ name: 'links' },
-		{ name: 'insert' },
-		{ name: 'styles' },
-		{ name: 'colors' },
-		{ name: 'tools' },
-		{ name: 'others' },
-		{ name: 'about' }
-	];
-
-	// The default plugins included in the basic setup define some buttons that
-	// are not needed in a basic editor. They are removed here.
-	//config.removeButtons = 'Cut,Copy,Paste,Undo,Redo,Anchor,Underline,Strike,Subscript,Superscript';
-	config.removeButtons = 'Cut,Copy,Paste';
-
-	// Dialog windows are also simplified.
-	config.removeDialogTabs = 'link:advanced';
-	config.entities_latin = false;
-	config.entities = false;
-	config.entities_greek = false;
-
-
+CKEDITOR.editorConfig = function (config) {
+    // Define changes to default configuration here. For example:
+    // config.language = 'vi';
+    // config.uiColor = #;
+    config.toolbar = [
+        ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo'],
+        ['Image', 'Table', 'Smiley', 'SpecialChar'],
+        ['Bold', 'Italic', 'Underline', 'Strike', '-', 'Subscript', 'Superscript'],
+        ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', 'CreateDiv'], ['Maximize'],
+        ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+        ['Link', 'Unlink'],
+        ['Styles', 'Format', 'Font', 'FontSize'],
+        ['TextColor', 'BGColor'],
+        ['Youtube', 'Imgur']
+    ];
+    config.extraPlugins = 'youtube,imgur';
+    config.imgurClientId = '8fea89576c41de4';
+    config.filebrowserBrowseUrl = '/admin/elfinder/browser';
 };
